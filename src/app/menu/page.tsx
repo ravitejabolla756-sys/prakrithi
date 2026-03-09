@@ -2,13 +2,20 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, Coffee, Utensils, IceCream, Pizza } from "lucide-react";
+import { ChevronLeft, Coffee, Utensils, IceCream, Pizza, LucideIcon } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+type MenuItem = {
+    name: string;
+    price: string;
+    desc?: string;
+    spiceLevel: number;
+};
+
 // Extended Menu Data
-const fullMenu = {
+const fullMenu: Record<string, MenuItem[]> = {
     "Starters": [
         { name: "Crispy Corn", desc: "Golden fried crispy niblets tossed in special seasoning", price: "₹220", spiceLevel: 1 },
         { name: "Chicken 65", desc: "Classic deep-fried chicken tossed with curry leaves and spices", price: "₹280", spiceLevel: 2 },
@@ -51,7 +58,7 @@ const fullMenu = {
     ]
 };
 
-const categoryIcons: Record<string, any> = {
+const categoryIcons: Record<string, LucideIcon> = {
     "Starters": Utensils,
     "Main Course": Pizza,
     "Biryani": Utensils,
@@ -116,8 +123,8 @@ export default function MenuPage() {
                                         key={cat}
                                         onClick={() => setActiveCategory(cat)}
                                         className={`flex items-center gap-2 whitespace-nowrap px-6 py-3 rounded-full border transition-all duration-300 font-medium tracking-wide ${activeCategory === cat
-                                                ? "bg-gold text-dark-200 border-gold shadow-[0_4px_20px_rgba(212,175,55,0.3)]"
-                                                : "bg-white/5 border-white/10 text-foreground/70 hover:bg-white/10 hover:border-gold/30 hover:text-foreground"
+                                            ? "bg-gold text-dark-200 border-gold shadow-[0_4px_20px_rgba(212,175,55,0.3)]"
+                                            : "bg-white/5 border-white/10 text-foreground/70 hover:bg-white/10 hover:border-gold/30 hover:text-foreground"
                                             }`}
                                     >
                                         <Icon size={16} className={activeCategory === cat ? "text-dark-200" : "text-gold"} />
