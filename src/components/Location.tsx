@@ -73,7 +73,7 @@ export default function Location() {
 
                         <div className="mt-14 flex flex-col xl:flex-row gap-4 relative z-10 w-full">
                             <a
-                                href="https://www.google.com/maps/place/Prakriti+Multicuisine+Restaurant/@15.4874329,80.0449703,16.7z/data=!4m6!3m5!1s0x3a4b01b6c8b75d85:0x8882126c60e1558!8m2!3d15.4877807!4d80.0449703"
+                                href="https://www.google.com/maps/place/Prakriti+Multicuisine+Restaurant/@15.4874329,80.0449703,16z/data=!4m6!3m5!1s0x3a4b01b6c8b75d85:0x8882126e60e1558!8m2!3d15.4877807!4d80.0481031!16s%2Fg%2F11tmzstkbr?entry=ttu&g_ep=EgoyMDI2MDMwNS4wIKXMDSoASAFQAw%3D%3D"
                                 target="_blank"
                                 rel="noreferrer"
                                 className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#aa8013] text-black px-8 py-3.5 rounded-full text-sm font-bold tracking-wide hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:scale-[1.02] transition-all duration-300 xl:flex-1"
@@ -109,13 +109,9 @@ export default function Location() {
                         ></iframe>
 
                         {/* Floating UI Elements on Map */}
-                        <div className="absolute top-6 left-6 z-10 glass px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 border border-white/20 backdrop-blur-md bg-black/40">
-                            <div className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
-                            <span className="text-white text-xs font-medium tracking-wide">2.3 km away</span>
-                        </div>
 
                         <a
-                            href="https://www.google.com/maps/place/Prakriti+Multicuisine+Restaurant/@15.4874329,80.0449703,16.7z/data=!4m6!3m5!1s0x3a4b01b6c8b75d85:0x8882126c60e1558!8m2!3d15.4877807!4d80.0449703"
+                            href="https://www.google.com/maps/place/Prakriti+Multicuisine+Restaurant/@15.4874329,80.0449703,16z/data=!4m6!3m5!1s0x3a4b01b6c8b75d85:0x8882126e60e1558!8m2!3d15.4877807!4d80.0481031!16s%2Fg%2F11tmzstkbr?entry=ttu&g_ep=EgoyMDI2MDMwNS4wIKXMDSoASAFQAw%3D%3D"
                             target="_blank"
                             rel="noreferrer"
                             className="absolute bottom-6 right-6 z-10 bg-white text-black px-4 py-2.5 rounded-lg shadow-xl flex items-center gap-2 font-semibold text-xs tracking-wide hover:bg-gray-100 hover:scale-105 transition-all"
