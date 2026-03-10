@@ -30,7 +30,12 @@ export default function Reviews() {
 
                 {/* Header flex for Desktop */}
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-                    <div>
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
                         <div className="flex items-center gap-2 mb-4">
                             <span className="h-[1px] w-8 bg-gold"></span>
                             <p className="uppercase tracking-[0.2em] text-sm text-gold">Testimonials</p>
@@ -38,9 +43,15 @@ export default function Reviews() {
                         <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">
                             Guest <span className="italic font-light">Experiences</span>
                         </h2>
-                    </div>
+                    </motion.div>
 
-                    <div className="glass px-6 py-4 rounded-xl flex items-center gap-4">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="glass px-6 py-4 rounded-xl flex items-center gap-4"
+                    >
                         <div className="text-center">
                             <p className="text-3xl font-serif text-gold font-bold">4.3</p>
                             <div className="flex text-gold text-sm gap-0.5 my-1">
@@ -52,7 +63,7 @@ export default function Reviews() {
                             <p className="text-white font-semibold">Google Rating</p>
                             <p className="text-sm text-foreground/60">Based on 1200+ reviews</p>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
 
                 {/* Reviews Grid */}

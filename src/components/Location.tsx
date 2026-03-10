@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { MapPin, Phone, Clock } from "lucide-react";
 
 export default function Location() {
@@ -10,7 +11,13 @@ export default function Location() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 overflow-hidden rounded-3xl glass border-gold/10">
 
                     {/* Contact Details */}
-                    <div className="lg:col-span-5 p-8 md:p-14 bg-dark-200/50 flex flex-col justify-center">
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8 }}
+                        className="lg:col-span-5 p-8 md:p-14 bg-dark-200/50 flex flex-col justify-center"
+                    >
                         <div className="flex items-center gap-2 mb-4">
                             <span className="h-[1px] w-8 bg-gold"></span>
                             <p className="uppercase tracking-[0.2em] text-sm text-gold">Visit Us</p>
@@ -55,7 +62,7 @@ export default function Location() {
 
                         <div className="mt-12 flex flex-wrap gap-4">
                             <a
-                                href="https://maps.app.goo.gl/uP4G"
+                                href="https://www.google.com/maps/place/Prakriti+Multicuisine+Restaurant/@15.4874329,80.0449703,16.7z/data=!4m6!3m5!1s0x3a4b01b6c8b75d85:0x8882126c60e1558!8m2!3d15.4877807!4d80.0449703"
                                 target="_blank"
                                 rel="noreferrer"
                                 className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-background px-6 py-3 rounded-full text-sm font-semibold transition-all hover:shadow-[0_0_15px_rgba(212,175,55,0.4)]"
@@ -69,12 +76,18 @@ export default function Location() {
                                 <span>Call Restaurant</span>
                             </a>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Map Embed */}
-                    <div className="lg:col-span-7 min-h-[400px] lg:min-h-full">
+                    <motion.div
+                        initial={{ opacity: 0, filter: "blur(10px)" }}
+                        whileInView={{ opacity: 1, filter: "blur(0px)" }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 1, delay: 0.2 }}
+                        className="lg:col-span-7 min-h-[400px] lg:min-h-full"
+                    >
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15340.963471018698!2d80.0385973!3d15.5143361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4b0113c1c73dbb%3A0xe9f000b9576c2aa2!2sPrakriti%20Multicuisine%20Restaurant!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.685458!2d80.0449703!3d15.4877807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4b01b6c8b75d85%3A0x8882126c60e1558!2sPrakriti%20Multicuisine%20Restaurant!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
                             width="100%"
                             height="100%"
                             style={{ border: 0, minHeight: "400px" }}
@@ -83,11 +96,11 @@ export default function Location() {
                             referrerPolicy="no-referrer-when-downgrade"
                             className="grayscale-[20%] contrast-125 opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
                         ></iframe>
-                    </div>
+                    </motion.div>
 
                 </div>
 
             </div>
-        </section>
+        </section >
     );
 }

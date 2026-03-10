@@ -1,7 +1,24 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Instagram, Facebook, Twitter } from "lucide-react";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
 
 export default function Footer() {
     return (
@@ -9,17 +26,36 @@ export default function Footer() {
             <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16"
+                >
 
                     {/* Brand */}
-                    <div className="lg:col-span-1">
-                        <Link href="/" className="flex flex-col mb-6">
-                            <span className="text-3xl font-serif text-gold font-bold tracking-wider">
-                                PRAKRITI
-                            </span>
-                            <span className="text-[0.6rem] uppercase tracking-[0.2em] text-foreground/70">
-                                Multicuisine Restaurant
-                            </span>
+                    <motion.div variants={itemVariants} className="lg:col-span-1">
+                        <Link href="/" className="flex items-center gap-3 mb-6">
+                            <div className="relative w-10 h-10 md:w-12 md:h-12 flex-shrink-0 drop-shadow-md">
+                                <Image
+                                    src="/logo.png"
+                                    alt="Prakriti Logo"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                            <div className="flex flex-col">
+                                <span
+                                    className="text-xl md:text-2xl font-serif font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-b from-[#fffae6] via-[#d4af37] to-[#aa8013] drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] filter uppercase"
+                                    style={{ WebkitTextStroke: "0.5px rgba(255,255,255,0.3)" }}
+                                >
+                                    PRAKRITI
+                                </span>
+                                <span className="text-[0.5rem] md:text-[0.55rem] font-bold uppercase tracking-[0.25em] text-[#e5e5e5] border-t border-gold/30 pt-0.5 mt-0.5" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                                    Multi Cuisine Restaurant
+                                </span>
+                            </div>
                         </Link>
                         <p className="text-foreground/60 font-light text-sm leading-relaxed mb-6">
                             An authentic culinary journey wrapped in a premium luxury dining experience in Ongole.
@@ -35,10 +71,10 @@ export default function Footer() {
                                 <Twitter size={18} />
                             </a>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Quick Links */}
-                    <div>
+                    <motion.div variants={itemVariants}>
                         <h4 className="text-white font-serif text-lg mb-6">Quick Links</h4>
                         <ul className="space-y-4">
                             {['Home', 'About Us', 'Our Menu', 'Gallery', 'Testimonials', 'Contact'].map((link) => (
@@ -49,10 +85,10 @@ export default function Footer() {
                                 </li>
                             ))}
                         </ul>
-                    </div>
+                    </motion.div>
 
                     {/* Services */}
-                    <div>
+                    <motion.div variants={itemVariants}>
                         <h4 className="text-white font-serif text-lg mb-6">Services</h4>
                         <ul className="space-y-4 text-sm text-foreground/60">
                             <li>Dine-in</li>
@@ -61,19 +97,19 @@ export default function Footer() {
                             <li>No-contact Delivery</li>
                             <li>Private Events</li>
                         </ul>
-                    </div>
+                    </motion.div>
 
                     {/* Opening Hours */}
-                    <div>
+                    <motion.div variants={itemVariants}>
                         <h4 className="text-white font-serif text-lg mb-6">Contact & Hours</h4>
                         <ul className="space-y-4 text-sm text-foreground/60">
                             <li>Everyday: 11:00 AM - 11:00 PM</li>
                             <li>+91 85007 77877</li>
                             <li><a href="mailto:info@prakritirestaurant.com" className="hover:text-gold transition-colors">info@prakritirestaurant.com</a></li>
                         </ul>
-                    </div>
+                    </motion.div>
 
-                </div>
+                </motion.div>
 
                 <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-xs text-foreground/40 text-center md:text-left">
@@ -85,6 +121,6 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer >
     );
 }

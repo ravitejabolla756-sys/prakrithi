@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
     { name: "Home", href: "#home" },
@@ -37,13 +38,26 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center">
                     {/* Logo */}
-                    <Link href="/" className="flex flex-col">
-                        <span className="text-2xl font-serif text-gold font-bold tracking-wider">
-                            PRAKRITI
-                        </span>
-                        <span className="text-[0.6rem] uppercase tracking-[0.2em] text-foreground/70">
-                            Multicuisine Restaurant
-                        </span>
+                    <Link href="/" className="flex items-center gap-3">
+                        <div className="relative w-12 h-12 md:w-16 md:h-16 flex-shrink-0 drop-shadow-md">
+                            <Image
+                                src="/logo.png"
+                                alt="Prakriti Logo"
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+                        <div className="flex flex-col">
+                            <span
+                                className="text-2xl md:text-3xl font-serif font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-b from-[#fffae6] via-[#d4af37] to-[#aa8013] drop-shadow-[0_3px_3px_rgba(0,0,0,0.8)] filter uppercase"
+                                style={{ WebkitTextStroke: "0.5px rgba(255,255,255,0.3)" }}
+                            >
+                                PRAKRITI
+                            </span>
+                            <span className="text-[0.55rem] md:text-[0.65rem] font-bold uppercase tracking-[0.25em] text-[#e5e5e5] border-t border-gold/30 pt-0.5 mt-0.5" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                                Multi Cuisine Restaurant
+                            </span>
+                        </div>
                     </Link>
 
                     {/* Desktop Nav */}
